@@ -9,9 +9,9 @@ const useGetUserDataFromDB = () => {
   const { data } = useQuery({
     queryKey: ["userDataFromDB", email],
     queryFn: () =>
-      fetch(`http://localhost:5000/api/v1/users/${email}`).then((res) =>
-        res.json()
-      )
+      fetch(
+        `https://achieve-flow-server.vercel.app/api/v1/users/${email}`
+      ).then((res) => res.json())
   });
   return data;
 };

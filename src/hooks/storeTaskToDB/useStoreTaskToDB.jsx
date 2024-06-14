@@ -4,7 +4,7 @@ const useStoreTaskToDB = () => {
   const { _id } = useGetUserDataFromDB() ?? {};
   return async (formData) => {
     formData.user = _id;
-    fetch("http://localhost:5000/api/v1/tasks", {
+    fetch("https://achieve-flow-server.vercel.app/api/v1/tasks", {
       method: "POST",
       headers: {
         "content-type": "application/json"

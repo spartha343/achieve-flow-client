@@ -10,7 +10,7 @@ const MyTasks = () => {
   useEffect(() => {
     const fetchTasks = async () => {
       const data = await fetch(
-        `http://localhost:5000/api/v1/tasks/${_id}`
+        `https://achieve-flow-server.vercel.app/api/v1/tasks/${_id}`
       ).then((res) => res.json());
 
       const toDo = data.filter((task) => task.status === "to-do");
@@ -25,13 +25,16 @@ const MyTasks = () => {
   }, [_id]);
 
   const handleDropTask = async (taskId, newStatus) => {
-    await fetch(`http://localhost:5000/api/v1/tasks/${taskId}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json"
-      },
-      body: JSON.stringify({ status: newStatus })
-    });
+    await fetch(
+      `https://achieve-flow-server.vercel.app/api/v1/tasks/${taskId}`,
+      {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json"
+        },
+        body: JSON.stringify({ status: newStatus })
+      }
+    );
 
     setTasks((prevTasks) => {
       // Define a mapping from status to state keys
