@@ -5,7 +5,7 @@ const ImageWithTextOverlay = () => {
     <div
       className="hero min-h-[70vh]"
       style={{
-        backgroundImage: `url(https://cdn.wedevs.com/uploads/2018/08/wp-project-manager-free.png)`
+        backgroundImage: `url(https://projectsly.com/images/task-management-system-screenshot-1.png?v=1691124479409199525)`
       }}
     >
       <div className="hero-overlay bg-opacity-60"></div>
