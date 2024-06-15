@@ -11,7 +11,6 @@ const useGoogleSignIn = () => {
   return () => {
     googleSignInWithPopUp()
       .then((result) => {
-        console.log(result);
         navigate(from, { replace: true });
         const { displayName, email, photoURL } = result.user;
         storeUserToDB({ name: displayName, email, image: photoURL });

@@ -20,18 +20,24 @@ const AuthProvider = ({ children }) => {
   const googleProvider = new GoogleAuthProvider();
 
   const googleSignInWithPopUp = () => {
+    setIsLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
 
   const signUpWithEmailAndPass = (email, password) => {
+    setIsLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const signInWithEmailAndPass = (email, password) => {
+    setIsLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  const signTheUserOut = () => signOut(auth);
+  const signTheUserOut = () => {
+    setIsLoading(true);
+    return signOut(auth);
+  };
 
   useEffect(() => {
     const unSubscribe = () => {
