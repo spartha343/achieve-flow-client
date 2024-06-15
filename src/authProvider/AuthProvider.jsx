@@ -14,30 +14,24 @@ export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const auth = getAuth(app);
 
   const googleProvider = new GoogleAuthProvider();
 
   const googleSignInWithPopUp = () => {
-    setIsLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
 
   const signUpWithEmailAndPass = (email, password) => {
-    setIsLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const signInWithEmailAndPass = (email, password) => {
-    setIsLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  const signTheUserOut = () => {
-    setIsLoading(true);
-    return signOut(auth);
-  };
+  const signTheUserOut = () => signOut(auth);
 
   useEffect(() => {
     const unSubscribe = () => {
