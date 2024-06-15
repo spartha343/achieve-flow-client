@@ -5,10 +5,10 @@ import useAuthInfo from "../../hooks/authInfo/useAuthInfo";
 const ProtectedRoutes = ({ children }) => {
   const location = useLocation();
   const { user, isLoading } = useAuthInfo();
-  if (isLoading) {
-    return <Loading />;
-  } else if (!user) {
+  if (!user) {
     return <Navigate to="/sign-in" state={{ from: location }} replace />;
+  } else if (isLoading) {
+    return <Loading />;
   }
   return <>{children}</>;
 };
